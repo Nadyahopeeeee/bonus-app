@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36.5px 28px 76px 25px;
+}
+
+.main__logo {
+  text-transform: uppercase;
+}

@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 4.5px 6px;
+  font-family: 'Helvetica';
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.header__connect {
+  display: flex;
+  align-items: center;
+  gap: 1.5px;
+  justify-content: space-between;
+}
+
+.header__circle {
+  border-radius: 50%;
+  width: 3.5px;
+  height: 4px;
+  border: 1px solid #000000;
+}
+
+.header__circle_full {
+  background: #000000;
+}
+
+.header__figma {
+  margin-left: 3px;
+}
+
+.header__charger {
+  display: flex;
+  align-items: center;
+  margin-left: 21px;
+}
+
+.header__battery {
+  width: 22.5px;
+  height: 10px;
+  margin-left: 6px;
+}
