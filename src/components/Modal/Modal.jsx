@@ -1,13 +1,24 @@
 import React from 'react';
-import './Modal.css';
+import { useSelector } from 'react-redux';
+import moment from 'moment';
 
-function Modal({ currentQuantity, forBurningQuantity, dateBurning }) {
+import './Modal.css';
+import { selectBonusInfo } from './selector';
+
+function Modal() {
+  const bonusData = useSelector(selectBonusInfo);
+
+  console.log(bonusData);
+
+  const date = bonusData?.data?.dateBurning || '';
+  // .moment().utc().format('DD.MM')
+
   return (
     <div className="modal">
       <div className="modal__content">
-        <h2 className="modal__bonus-title">{currentQuantity} бонусов</h2>
+        <h2 className="modal__bonus-title">{} бонусов</h2>
         <div className="modal__info">
-          <span className="modal__deadline">{dateBurning} сгорит</span>
+          <span className="modal__deadline">{date} сгорит</span>
           <svg
             className="modal__fire"
             width="13"
@@ -34,7 +45,7 @@ function Modal({ currentQuantity, forBurningQuantity, dateBurning }) {
               </linearGradient>
             </defs>
           </svg>
-          <span className="modal__deadline-bonus">{forBurningQuantity} бонусов</span>
+          <span className="modal__deadline-bonus">{} бонусов</span>
         </div>
       </div>
       <div className="modal__btn">
