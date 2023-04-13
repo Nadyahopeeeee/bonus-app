@@ -3,6 +3,8 @@
 ## Stack
 
 - React.js
+- Redux
+- Reselect
 - Fetch (asynс request)
 - Moment.js (date convert)
 

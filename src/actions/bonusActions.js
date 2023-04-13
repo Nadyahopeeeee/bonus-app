@@ -1,16 +1,17 @@
-import { bonusReducer } from '../reduser/bonusReducer';
 import { post, get } from '../helpers';
 
 export const bonusTypes = {
-  SET_LOADING: 'SET_LOADING',
-  SET_TOKEN: 'SET_TOKEN',
-  SET_BONUS_DATA: 'SET_BONUS_DATA',
+  SET_LOADING: 'BONUS/SET_LOADING',
+  SET_TOKEN: 'BONUS/SET_TOKEN',
+  SET_BONUS_DATA: 'BONUS/SET_BONUS_DATA',
+  SET_MODAL_STATE: 'BONUS/SET_MODAL_STATE',
 };
 
-const bonusActions = {
+export const bonusActions = {
   setLoading: (payload) => ({ type: bonusTypes.SET_LOADING, payload }),
   setToken: (payload) => ({ type: bonusTypes.SET_TOKEN, payload }),
   setBonus: (payload) => ({ type: bonusTypes.SET_BONUS_DATA, payload }),
+  setModalState: (payload) => ({ type: bonusTypes.SET_MODAL_STATE, payload }),
 };
 
 export const fetchToken = (url, payload) => {
@@ -35,7 +36,11 @@ export const fetchBonusData = (url) => {
       .then((response) => response.json())
       .then((data) => {
         dispatch(bonusActions.setBonus(data));
+        dispatch(bonusActions.setModalState(true));
       })
-      .catch(dispatch(bonusActions.setLoading(false)));
+      .catch(() => {
+        dispatch(bonusActions.setLoading(false));
+        dispatch(bonusActions.setModalState(false));
+      });
   };
 };

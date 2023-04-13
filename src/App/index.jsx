@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Header from '../components/Header/Header';
-import Main from '../components/Main/Main';
-import Footer from '../components/Footer/Footer';
+import Header from '../components/Header';
+import Main from '../components/Main';
+import Footer from '../components/Footer';
 import { fetchToken, fetchBonusData } from '../actions/bonusActions';
 import { selectToken } from './selector';
 
@@ -20,9 +20,6 @@ const apiData = {
 function App() {
   const token = useSelector(selectToken);
   const dispatch = useDispatch();
-
-  // 'http://84.201.188.117:5021/api/v3/clients/accesstoken'
-  // `http://84.201.188.117:5003/api/v3/ibonus/generalinfo/${token}`
 
   useEffect(() => {
     if (!token) {

@@ -2,7 +2,13 @@ import { bonusTypes } from '../actions/bonusActions';
 
 const deafaulState = {
   tokenData: {},
-  bonusData: {},
+  bonusData: {
+    data: {
+      dateBurning: '',
+      forBurningQuantity: 0,
+      currentQuantity: 0,
+    },
+  },
   isLoading: false,
   isModalVisiable: false,
 };
@@ -23,6 +29,11 @@ export const bonusReducer = (state = deafaulState, action) => {
       return {
         ...state,
         bonusData: action.payload,
+      };
+    case bonusTypes.SET_MODAL_STATE:
+      return {
+        ...state,
+        isModalVisible: action.payload,
       };
     default:
       return state;
